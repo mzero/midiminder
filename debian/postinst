@@ -2,12 +2,6 @@
 set -e
 
 
-create_service_user() {
-  adduser --system  --home /run/midiminder --gecos "midiminder daemon" \
-          --no-create-home --disabled-password --ingroup audio \
-          --quiet midiminder || true
-}
-
 suggest_package_removal() {
   if [ \
     "$(dpkg-query  --showformat='${db:Status-Status}' -W $1 2>/dev/null)" \
@@ -43,8 +37,6 @@ advise_old_rules() {
 }
 
 if [ "$1" = "configure" ]; then
-  create_service_user
-
   suggest_package_removal amidiauto
   stop_and_disable_service amidiauto
 

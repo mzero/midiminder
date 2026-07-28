@@ -2,7 +2,7 @@ Source: midiminder
 Section: sound
 Priority: optional
 Maintainer: John Horigan <john@glyphic.com>
-Build-Depends: debhelper-compat (= 13), libasound2-dev, libfmt-dev, libicu-dev
+Build-Depends: debhelper-compat (= 13), dh-sequence-installsysusers, libasound2-dev, libfmt-dev, libicu-dev
 Standards-Version: 4.7.0
 Homepage: https://github.com/mzero/midiminder
 Rules-Requires-Root: no
@@ -10,7 +10,7 @@ Rules-Requires-Root: no
 Package: midiminder
 Architecture: any
 Multi-Arch: foreign
-Depends: ${misc:Depends}, ${shlibs:Depends}, adduser
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: MIDI connection minder & viewer
  Keeps track of connections between MIDI ports (hardware & software alike).
  If those connections are lost because the hardware disconnects, or the
